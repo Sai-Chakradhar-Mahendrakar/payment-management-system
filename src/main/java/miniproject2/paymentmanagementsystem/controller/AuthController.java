@@ -34,8 +34,6 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Invalid authorization header");
         }
 
-        // In a simple implementation, we just return success
-        // The client should discard the token
         return ResponseEntity.ok("Successfully logged out. Please discard your token.");
     }
 }

@@ -18,9 +18,5 @@ public class TokenBlacklistService {
         return blacklistedTokens.contains(token);
     }
 
-    public void removeExpiredTokens() {
-        // In a production environment, you would implement token expiration cleanup
-        // This could be done with a scheduled task that removes expired tokens
-        // For now, this is a placeholder method
-    }
+    public void removeExpiredTokens() { }
 }
