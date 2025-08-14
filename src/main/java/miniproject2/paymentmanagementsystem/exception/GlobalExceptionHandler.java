@@ -1,5 +1,6 @@
 package miniproject2.paymentmanagementsystem.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -15,10 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        log.warn("Validation error occurred: {}", ex.getMessage());
+
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
@@ -33,11 +37,14 @@ public class GlobalExceptionHandler {
                 errors
         );
 
+        log.debug("Validation errors: {}", errors);
         return ResponseEntity.badRequest().body(errorResponse);
     }
 
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        log.warn("User not found: {}", ex.getMessage());
+
         ErrorResponse errorResponse = new ErrorResponse(
                 ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
@@ -49,6 +56,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleBadCredentialsException(BadCredentialsException ex) {
+        log.warn("Authentication failed: {}", ex.getMessage());
+
         ErrorResponse errorResponse = new ErrorResponse(
                 "Invalid email or password",
                 HttpStatus.UNAUTHORIZED.value(),
@@ -60,6 +69,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDeniedException(AccessDeniedException ex) {
+        log.warn("Access denied: {}", ex.getMessage());
+
         ErrorResponse errorResponse = new ErrorResponse(
                 "Access denied. You don't have permission to access this resource",
                 HttpStatus.FORBIDDEN.value(),
@@ -71,6 +82,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeException(RuntimeException ex) {
+        log.error("Runtime exception occurred: {}", ex.getMessage(), ex);
+
         ErrorResponse errorResponse = new ErrorResponse(
                 ex.getMessage(),
                 HttpStatus.BAD_REQUEST.value(),
@@ -82,6 +95,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
+        log.error("Unexpected error occurred: {}", ex.getMessage(), ex);
+
         ErrorResponse errorResponse = new ErrorResponse(
                 "An unexpected error occurred",
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
