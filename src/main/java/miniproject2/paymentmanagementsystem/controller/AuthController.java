@@ -32,20 +32,4 @@ public class AuthController {
             throw e;
         }
     }
-
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
-        log.info("Logout request received");
-        // For JWT-based authentication, logout is typically handled on the client side
-        // by simply discarding the token. However, we can add server-side validation
-        String authHeader = request.getHeader("Authorization");
-
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            log.warn("Invalid authorization header in logout request");
-            return ResponseEntity.badRequest().body("Invalid authorization header");
-        }
-
-        log.info("Successful logout");
-        return ResponseEntity.ok("Successfully logged out. Please discard your token.");
-    }
 }
