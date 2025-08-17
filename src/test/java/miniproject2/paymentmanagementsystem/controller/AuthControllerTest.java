@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -215,35 +214,5 @@ class AuthControllerTest {
                 "jwt.token.here", 2L, "Finance Manager", "fm@example.com", Role.FINANCE_MANAGER);
 
         when(authService.authenticate(any(LoginRequestDTO.class))).thenReturn(financeManagerResponse);
-
-    @Test
-    @WithMockUser
-    void logout_ShouldReturnOk_WhenValidAuthorizationHeader() throws Exception {
-        // When & Then
-        mockMvc.perform(post("/api/auth/logout")
-                        .with(csrf())
-                        .header("Authorization", "Bearer jwt.token.here"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Successfully logged out. Please discard your token."));
-    }
-
-    @Test
-    @WithMockUser
-    void logout_ShouldReturnBadRequest_WhenInvalidAuthorizationHeader() throws Exception {
-        // When & Then
-        mockMvc.perform(post("/api/auth/logout")
-                        .with(csrf())
-                        .header("Authorization", "Invalid header"))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("Invalid authorization header"));
-    }
-
-    @Test
-    void logout_ShouldReturnBadRequest_WhenNoAuthorizationHeader() throws Exception {
-        // When & Then
-        mockMvc.perform(post("/api/auth/logout")
-                        .with(csrf()))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("Invalid authorization header"));
     }
 }

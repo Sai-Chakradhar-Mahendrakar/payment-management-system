@@ -55,22 +55,4 @@ public class AuthService {
             throw e;
         }
     }
-
-    public void logout(String token) {
-        log.info("Processing logout request");
-
-        // Remove "Bearer " prefix if present
-        if (token.startsWith("Bearer ")) {
-            token = token.substring(7);
-        }
-
-        try {
-            // Add token to blacklist
-            tokenBlacklistService.blacklistToken(token);
-            log.info("Token successfully blacklisted");
-        } catch (Exception e) {
-            log.error("Failed to blacklist token", e);
-            throw e;
-        }
-    }
 }
