@@ -37,9 +37,6 @@ class AuthServiceTest {
     private JwtUtil jwtUtil;
 
     @Mock
-    private TokenBlacklistService tokenBlacklistService;
-
-    @Mock
     private Authentication authentication;
 
     @InjectMocks
@@ -103,31 +100,6 @@ class AuthServiceTest {
         verify(authenticationManager).authenticate(any(UsernamePasswordAuthenticationToken.class));
         verify(userRepository).findByEmail(loginRequest.getEmail());
         verify(jwtUtil, never()).generateToken(any());
-    }
-
-    @Test
-    void logout_ShouldBlacklistToken_WhenTokenHasBearerPrefix() {
-        // Given
-        String tokenWithPrefix = "Bearer jwt.token.here";
-        String expectedToken = "jwt.token.here";
-
-        // When
-        authService.logout(tokenWithPrefix);
-
-        // Then
-        verify(tokenBlacklistService).blacklistToken(expectedToken);
-    }
-
-    @Test
-    void logout_ShouldBlacklistToken_WhenTokenHasNoBearerPrefix() {
-        // Given
-        String token = "jwt.token.here";
-
-        // When
-        authService.logout(token);
-
-        // Then
-        verify(tokenBlacklistService).blacklistToken(token);
     }
 
     @Test

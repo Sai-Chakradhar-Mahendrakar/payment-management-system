@@ -21,7 +21,6 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
-    private final TokenBlacklistService tokenBlacklistService;
 
     public AuthResponseDTO authenticate(LoginRequestDTO loginRequest) {
         log.info("Attempting authentication for user: {}", loginRequest.getEmail());
