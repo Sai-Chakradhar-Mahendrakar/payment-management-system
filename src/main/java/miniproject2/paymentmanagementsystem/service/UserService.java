@@ -2,8 +2,8 @@ package miniproject2.paymentmanagementsystem.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import miniproject2.paymentmanagementsystem.dto.UserCreateDTO;
-import miniproject2.paymentmanagementsystem.dto.UserResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.UserCreateDTO;
+import miniproject2.paymentmanagementsystem.dto.response.UserResponseDTO;
 import miniproject2.paymentmanagementsystem.entity.User;
 import miniproject2.paymentmanagementsystem.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;

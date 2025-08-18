@@ -2,9 +2,9 @@ package miniproject2.paymentmanagementsystem.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import miniproject2.paymentmanagementsystem.dto.PaymentCreateDTO;
-import miniproject2.paymentmanagementsystem.dto.PaymentResponseDTO;
-import miniproject2.paymentmanagementsystem.dto.PaymentUpdateDTO;
+import miniproject2.paymentmanagementsystem.dto.request.PaymentCreateDTO;
+import miniproject2.paymentmanagementsystem.dto.response.PaymentResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.PaymentUpdateDTO;
 import miniproject2.paymentmanagementsystem.entity.Payment;
 import miniproject2.paymentmanagementsystem.entity.User;
 import miniproject2.paymentmanagementsystem.enums.Role;

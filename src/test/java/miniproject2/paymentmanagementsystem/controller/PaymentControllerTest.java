@@ -1,9 +1,9 @@
 package miniproject2.paymentmanagementsystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import miniproject2.paymentmanagementsystem.dto.PaymentCreateDTO;
-import miniproject2.paymentmanagementsystem.dto.PaymentResponseDTO;
-import miniproject2.paymentmanagementsystem.dto.PaymentUpdateDTO;
+import miniproject2.paymentmanagementsystem.dto.request.PaymentCreateDTO;
+import miniproject2.paymentmanagementsystem.dto.response.PaymentResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.PaymentUpdateDTO;
 import miniproject2.paymentmanagementsystem.enums.Category;
 import miniproject2.paymentmanagementsystem.enums.PaymentType;
 import miniproject2.paymentmanagementsystem.enums.Status;

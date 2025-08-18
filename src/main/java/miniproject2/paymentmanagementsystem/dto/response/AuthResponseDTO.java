@@ -1,4 +1,4 @@
-package miniproject2.paymentmanagementsystem.dto;
+package miniproject2.paymentmanagementsystem.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

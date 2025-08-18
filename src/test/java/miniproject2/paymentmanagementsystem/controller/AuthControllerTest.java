@@ -1,8 +1,8 @@
 package miniproject2.paymentmanagementsystem.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import miniproject2.paymentmanagementsystem.dto.AuthResponseDTO;
-import miniproject2.paymentmanagementsystem.dto.LoginRequestDTO;
+import miniproject2.paymentmanagementsystem.dto.response.AuthResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.LoginRequestDTO;
 import miniproject2.paymentmanagementsystem.enums.Role;
 import miniproject2.paymentmanagementsystem.service.AuthService;
 import org.junit.jupiter.api.BeforeEach;

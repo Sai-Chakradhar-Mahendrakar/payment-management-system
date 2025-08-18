@@ -2,8 +2,8 @@ package miniproject2.paymentmanagementsystem.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import miniproject2.paymentmanagementsystem.dto.UserCreateDTO;
-import miniproject2.paymentmanagementsystem.dto.UserResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.UserCreateDTO;
+import miniproject2.paymentmanagementsystem.dto.response.UserResponseDTO;
 import miniproject2.paymentmanagementsystem.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

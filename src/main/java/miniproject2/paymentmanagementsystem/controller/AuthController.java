@@ -1,14 +1,12 @@
 package miniproject2.paymentmanagementsystem.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import miniproject2.paymentmanagementsystem.dto.AuthResponseDTO;
-import miniproject2.paymentmanagementsystem.dto.LoginRequestDTO;
+import miniproject2.paymentmanagementsystem.dto.response.AuthResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.LoginRequestDTO;
 import miniproject2.paymentmanagementsystem.service.AuthService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

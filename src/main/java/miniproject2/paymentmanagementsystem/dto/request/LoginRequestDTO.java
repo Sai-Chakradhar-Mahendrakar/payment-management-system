@@ -1,4 +1,4 @@
-package miniproject2.paymentmanagementsystem.dto;
+package miniproject2.paymentmanagementsystem.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

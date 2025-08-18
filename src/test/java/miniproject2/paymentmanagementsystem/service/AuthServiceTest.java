@@ -1,7 +1,7 @@
 package miniproject2.paymentmanagementsystem.service;
 
-import miniproject2.paymentmanagementsystem.dto.AuthResponseDTO;
-import miniproject2.paymentmanagementsystem.dto.LoginRequestDTO;
+import miniproject2.paymentmanagementsystem.dto.response.AuthResponseDTO;
+import miniproject2.paymentmanagementsystem.dto.request.LoginRequestDTO;
 import miniproject2.paymentmanagementsystem.entity.User;
 import miniproject2.paymentmanagementsystem.enums.Role;
 import miniproject2.paymentmanagementsystem.repository.UserRepository;
@@ -21,7 +21,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
